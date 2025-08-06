@@ -1,0 +1,14 @@
+@use '../CSS/mixins' as mixin;
+
+.square {
+  width: var(--column-width);
+  height: var(--column-width);
+  background-color: var(--semi-dark-navy);
+  border-radius: var(--radius-lg);
+  border: 0;
+  @include mixin.shadow(8px, var(--shadow-navy));
+
+  img {
+    margin-top: -2px;
+  }
+}

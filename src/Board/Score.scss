@@ -1,0 +1,44 @@
+@use '../CSS/fonts';
+
+.scoreBoard {
+  display: flex;
+  gap: var(--column-padding);
+
+  .header, .score {
+    @extend .outfit-medium;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--dark-navy);
+    margin: 0;
+  }
+
+  .score {
+    @extend .outfit-bold;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .card {
+    box-sizing: border-box;
+    padding-top: 10px;
+    width:var(--column-width);
+    height: 72px;
+    background-color: var(--silver);
+    border-radius: var(--radius-lg);
+    text-align: center;
+  }
+
+  .xScore {
+    @extend .card;
+    background-color: var(--light-blue);
+  }
+
+  .ties {
+    @extend .card;
+  }
+
+  .oScore {
+    @extend .card;
+    background-color: var(--light-yellow);
+  }
+}

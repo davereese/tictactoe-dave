@@ -1,0 +1,9 @@
+.container {
+  width: 460px;
+
+  .boardRow {
+    display: flex;
+    gap: var(--column-padding);
+    padding-bottom: var(--column-padding);
+  }
+}

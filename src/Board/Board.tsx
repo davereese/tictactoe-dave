@@ -11,8 +11,6 @@ function Board() {
   const [status, setStatus] = useState("");
 
   const oIsNext = currentMove % 2 === 0;
-  const nextMove = moves.slice();
-
 
   function handleReset() {
     setMoves(Array(9).fill(null));
@@ -22,7 +20,10 @@ function Board() {
 
   function handleClick(index: number) {
     if (status) return;
-  
+    if (moves[index]) return;
+
+    const nextMove = moves.slice();
+
     // figure out if o is next
     if (oIsNext) {
       nextMove[index] = "O";
@@ -30,13 +31,11 @@ function Board() {
       nextMove[index] = "X";
     }
 
-      
     setMoves(nextMove);
     setCurrentMove(currentMove + 1);
 
     const winner = calculateWinner(nextMove);
-    console.log(winner);
-    if(winner) setStatus(winner);
+    if (winner) setStatus(winner);
   }
 
   function calculateWinner(squares: (string|null)[]) {

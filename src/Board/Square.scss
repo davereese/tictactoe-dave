@@ -6,6 +6,7 @@
   background-color: var(--semi-dark-navy);
   border-radius: var(--radius-lg);
   border: 0;
+  transition: all 0.3s;
   @include mixin.shadow(8px, var(--shadow-navy));
 
   img {

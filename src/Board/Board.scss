@@ -1,3 +1,5 @@
+@use "../CSS/mixins" as mixin;
+
 .container {
   width: 460px;
 
@@ -5,5 +7,27 @@
     display: flex;
     gap: var(--column-padding);
     padding-bottom: var(--column-padding);
+  }
+
+  .win {
+    transform: translateY(-4px);
+    
+    img {
+      filter: brightness(0.2);
+    }
+  }
+
+  &.X {
+    .win {
+      background-color: var(--light-blue);
+      @include mixin.shadow(8px, var(--shadow-blue));
+    }
+  }
+
+    &.O {
+    .win {
+      background-color: var(--light-yellow);
+      @include mixin.shadow(8px, var(--shadow-yellow));
+    }
   }
 }

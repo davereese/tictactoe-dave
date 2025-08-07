@@ -5,14 +5,13 @@ import "./Square.scss";
 
 interface SquareProps {
   value: string | null;
+  win: boolean;
   onSquareClick: () => void;
 }
 
-function Square({value, onSquareClick}: SquareProps) {
-
-
+function Square({value, win, onSquareClick}: SquareProps) {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className={`square ${win ? "win" : ""}`} onClick={onSquareClick}>
       {!!value && <img src={value === "X" ? X : O} alt={value} />}
     </button>
   )

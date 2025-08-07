@@ -1,8 +1,6 @@
-import './Score.scss'
+import "./Score.scss"
 
 function Score() {
-
-
   return (
     <div className="scoreBoard">
       <div className="xScore">

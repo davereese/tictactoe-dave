@@ -1,4 +1,4 @@
-@use '../CSS/fonts';
+@use "../CSS/fonts";
 
 .scoreBoard {
   display: flex;
@@ -7,7 +7,6 @@
   .header, .score {
     @extend .outfit-medium;
     font-size: 14px;
-    letter-spacing: 1px;
     color: var(--dark-navy);
     margin: 0;
   }
@@ -19,7 +18,6 @@
   }
 
   .card {
-    box-sizing: border-box;
     padding-top: 10px;
     width:var(--column-width);
     height: 72px;

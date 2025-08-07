@@ -1,6 +1,6 @@
-@use 'CSS/colors';
-@use 'CSS/fonts';
-@use 'CSS/layout';
+@use "CSS/colors";
+@use "CSS/fonts";
+@use "CSS/layout";
 
 :root {
   @extend .outfit;
@@ -22,4 +22,12 @@
 body {
   margin: 0;
   height: 100%;
+
+  div {
+    box-sizing: border-box;
+  }
+
+  button {
+    cursor: pointer;
+  }
 }

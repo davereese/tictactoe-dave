@@ -1,11 +1,7 @@
-import { useState } from 'react'
-
-import './App.scss'
-import Board from './Board/Board'
+import "./App.scss";
+import Board from "./Board/Board";
 
 function App() {
-
-
   return (
     <>
       <Board />

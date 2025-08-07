@@ -1,41 +1,46 @@
-import { useEffect, useState } from 'react'
-import './Board.scss'
+import { useState } from "react"
 
-import BoardHeader from './BoardHeader'
-import Score from './Score'
-import Square from './Square'
+import BoardHeader from "./BoardHeader"
+import Score from "./Score"
+import Square from "./Square"
+import Winner from "./Winner"
+
+import "./Board.scss"
 
 function Board() {
   const [moves, setMoves] = useState<(string|null)[]>(() => Array(9).fill(null));
   const [currentMove, setCurrentMove] = useState(0);
-  const [status, setStatus] = useState("");
+  const [winner, setWinner] = useState<string|null>(() => "");
 
-  const oIsNext = currentMove % 2 === 0;
+  const xIsNext = currentMove % 2 === 0;
 
   function handleReset() {
     setMoves(Array(9).fill(null));
     setCurrentMove(0);
-    setStatus("");
+    setWinner("");
   }
 
   function handleClick(index: number) {
-    if (status) return;
+    if (winner) return;
     if (moves[index]) return;
 
     const nextMove = moves.slice();
 
-    // figure out if o is next
-    if (oIsNext) {
-      nextMove[index] = "O";
-    } else {
+    if (xIsNext) {
       nextMove[index] = "X";
+    } else {
+      nextMove[index] = "O";
     }
 
     setMoves(nextMove);
     setCurrentMove(currentMove + 1);
 
-    const winner = calculateWinner(nextMove);
-    if (winner) setStatus(winner);
+    const winnerChar = calculateWinner(nextMove);
+    if (winnerChar) {
+      setWinner(winnerChar);
+    } else if (currentMove === 8) {
+      setWinner("T");
+    }
   }
 
   function calculateWinner(squares: (string|null)[]) {
@@ -60,25 +65,28 @@ function Board() {
   }
 
   return (
-    <div className="container">
-      <BoardHeader oIsNext={oIsNext} reset={() => handleReset()} />
-      <div className="boardRow">
-        <Square value={moves[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={moves[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={moves[2]} onSquareClick={() => handleClick(2)} />
+    <>
+      <div className="container">
+        <BoardHeader xIsNext={xIsNext} reset={() => handleReset()} />
+        <div className="boardRow">
+          <Square value={moves[0]} onSquareClick={() => handleClick(0)} />
+          <Square value={moves[1]} onSquareClick={() => handleClick(1)} />
+          <Square value={moves[2]} onSquareClick={() => handleClick(2)} />
+        </div>
+        <div className="boardRow">
+          <Square value={moves[3]} onSquareClick={() => handleClick(3)} />
+          <Square value={moves[4]} onSquareClick={() => handleClick(4)} />
+          <Square value={moves[5]} onSquareClick={() => handleClick(5)} />
+        </div>
+        <div className="boardRow">
+          <Square value={moves[6]} onSquareClick={() => handleClick(6)} />
+          <Square value={moves[7]} onSquareClick={() => handleClick(7)} />
+          <Square value={moves[8]} onSquareClick={() => handleClick(8)} />
+        </div>
+        <Score />
       </div>
-      <div className="boardRow">
-        <Square value={moves[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={moves[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={moves[5]} onSquareClick={() => handleClick(5)} />
-      </div>
-      <div className="boardRow">
-        <Square value={moves[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={moves[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={moves[8]} onSquareClick={() => handleClick(8)} />
-      </div>
-      <Score />
-    </div>
+      <Winner winner={winner} onNextClick={() => handleReset()}/>
+    </>
   )
 }
 

@@ -1,5 +1,5 @@
-@use '../CSS/mixins' as mixin;
-@use '../CSS/fonts';
+@use "../CSS/mixins" as mixin;
+@use "../CSS/fonts";
 
 .boardHeader {
   display: grid;
@@ -16,7 +16,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    box-sizing: border-box;
     padding: 8px;
     gap: 10px;
     background-color: var(--semi-dark-navy);
@@ -25,7 +24,6 @@
     border-radius: var(--radius-sm);
     color: var(--silver);
     font-size: 16px;
-    letter-spacing: 1px;
     @extend .outfit-medium;
     @include mixin.shadow(4px, var(--shadow-navy));
 
@@ -41,6 +39,6 @@
     border-radius: var(--radius-sm);
     border: 0;
     background-color: var(--silver);
-    @include mixin.shadow(4px, var(--silver-shadow));
+    @include mixin.shadow(4px, var(--shadow-silver));
   }
 }

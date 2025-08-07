@@ -1,14 +1,14 @@
-import './Square.scss';
+import X from "../assets/X.svg";
+import O from "../assets/O.svg";
 
-import X from '../assets/X.svg';
-import O from '../assets/O.svg';
+import "./Square.scss";
 
-interface SquareInterface {
+interface SquareProps {
   value: string | null;
   onSquareClick: () => void;
 }
 
-function Square({value, onSquareClick}: SquareInterface) {
+function Square({value, onSquareClick}: SquareProps) {
 
 
   return (

@@ -67,8 +67,8 @@
     @include mixin.shadow(4px, var(--shadow-yellow));
 
     &:hover {
-       background-color: var(--light-yellow-hover);
-       transform: translateY(-4px);
+      background-color: var(--light-yellow-hover);
+      transform: translateY(-4px);
     }
   }
 }

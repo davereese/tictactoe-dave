@@ -39,6 +39,21 @@
     border-radius: var(--radius-sm);
     border: 0;
     background-color: var(--silver);
+    transition: all 0.3s var(--easing);
     @include mixin.shadow(4px, var(--shadow-silver));
+
+    img {
+      transition: all 0s;
+    }
+
+    &:hover {
+      background-color: var(--silver-hover);
+      transform: translateY(-4px);
+
+      img {
+        transform: rotate(360deg);
+        transition: all 0.5s var(--easing);
+      }
+    }
   }
 }

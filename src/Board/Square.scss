@@ -9,7 +9,23 @@
   transition: all 0.3s;
   @include mixin.shadow(8px, var(--shadow-navy));
 
+  &:hover {
+    filter: brightness(1.2);
+  }
+
   img {
     margin-top: -2px;
+    animation: popIn 0.1s cubic-bezier(0,.06,.5,1.95);
+    animation-fill-mode: both;
+  }
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
   }
 }

@@ -1,12 +1,16 @@
 @use "../CSS/fonts";
 @use "../CSS/mixins" as mixin;
 
+:root {
+  --bar-height: 226px;
+}
+
 .winner {
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 266px;
+  height: var(--bar-height);
   width: 100%;
   z-index: 2;
   background-color: var(--semi-dark-navy);
@@ -14,6 +18,10 @@
   text-align: center;
   animation: growOn 0.4s var(--easing) 0.5s;
   animation-fill-mode: both;
+
+  @include mixin.media(tablet) {
+    --bar-height: 266px;
+  }
 
   &.leaving {
     animation: shrinkOff 0.4s var(--easing);
@@ -33,16 +41,37 @@
 
   .subhead {
     margin-top: 0;
+    font-size: 14px;
+    margin-bottom: 2px;
+
+    @include mixin.media(tablet) {
+      font-size: 16;
+      margin-bottom: initial;
+    }
   }
 
   .head {
     height: 64px;
     display: flex;
-    margin: 0 auto 20px;
+    margin: 0 auto 10px;
     justify-content: center;
     align-items: center;
-    gap: var(--column-padding);
-    font-size: 40px;
+    gap: 12px;
+    font-size: 24px;
+
+    @include mixin.media(tablet) {
+      font-size: 40px;
+      gap: var(--column-padding);
+      margin: 0 auto 20px;
+
+      img {
+        height: initial;
+      }
+    }
+
+    img {
+      height: 30px;
+    }
 
     &.xWin {
       color: var(--light-blue);
@@ -95,14 +124,14 @@
   }
 
   to {
-    height: 266px;
+    height: var(--bar-height);;
     margin-top: 0;
   }
 }
 
 @keyframes shrinkOff {
   from {
-    height: 266px;
+    height: var(--bar-height);
     margin-top: 0;
   }
 

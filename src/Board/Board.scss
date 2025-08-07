@@ -1,7 +1,11 @@
 @use "../CSS/mixins" as mixin;
 
 .container {
-  width: 460px;
+  width: 328px;
+
+  @include mixin.media(tablet) {
+    width: 460px;
+  }
 
   .boardRow {
     display: flex;

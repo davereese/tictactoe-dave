@@ -1,13 +1,18 @@
 @use "../CSS/mixins" as mixin;
 
 .square {
-  width: var(--column-width);
-  height: var(--column-width);
+  width: var(--column-width-sm);
+  height: var(--column-width-sm);
   background-color: var(--semi-dark-navy);
   border-radius: var(--radius-lg);
   border: 0;
   transition: all 0.3s;
   @include mixin.shadow(8px, var(--shadow-navy));
+
+  @include mixin.media(tablet) {
+    width: var(--column-width);
+    height: var(--column-width);
+  }
 
   &:hover {
     filter: brightness(1.2);
@@ -18,6 +23,11 @@
     transition: all 0.3s;
     animation: popIn 0.1s cubic-bezier(0,.06,.5,1.95);
     animation-fill-mode: both;
+    height: 40px;
+
+    @include mixin.media(tablet) {
+      height: inherit;
+    }
   }
 }
 

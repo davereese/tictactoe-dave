@@ -86,7 +86,7 @@ function Board() {
           <Square value={moves[7]} win={winningMoves.includes(7)} onSquareClick={() => handleClick(7)} />
           <Square value={moves[8]} win={winningMoves.includes(8)} onSquareClick={() => handleClick(8)} />
         </div>
-        <Score />
+        <Score winner={winner} />
       </div>
       <Winner winner={winner} onNextClick={() => handleReset()}/>
     </>

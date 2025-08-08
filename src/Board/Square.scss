@@ -26,7 +26,7 @@
     height: 40px;
 
     @include mixin.media(tablet) {
-      height: inherit;
+      height: 64px;
     }
   }
 }
